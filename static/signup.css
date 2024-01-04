@@ -1,0 +1,130 @@
+
+
+body.signup-body {
+    background:#fff  !important;
+    font-family: sans-serif;
+}
+
+.signup-body .login-page {
+  width: 450px;
+  padding: 4% 0 0;
+  margin: auto;
+}
+.signup-body .form {
+  position: relative;
+  z-index: 1;
+  background: #EEEEEE;
+  max-width: 450px;
+  margin: 0 auto 20px;
+  padding: 20px 45px 45px 45px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+border-radius: 25px;
+}
+.signup-body .form input {
+  outline: 0;
+  background: #fff;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 7px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+ .signup-body .form button {
+  text-transform: uppercase;
+  outline: 0;
+  background: #EEEEEE;
+  border: 0;
+  
+  color: black;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+  padding: 10px;
+    width: 49%;
+    border: 1px solid gray;
+
+}
+.signup-body .form button:hover,.form button:active,.form button:focus {
+
+  
+}
+.signup-body .message {
+  margin: 15px 0 0;
+  color: #b3b3b3;
+  
+      font-size: 13px !important;
+    text-align: center !important;
+    color: white !important;
+  
+}
+
+.signup-body .message a {
+  color: white !important;
+  }
+ .signup-body .form .register-form {
+  display: none;
+}
+.signup-body .container {
+  position: relative;
+  z-index: 1;
+  max-width: 300px;
+  margin: 0 auto;
+  
+}
+.signup-body .container:before, .signup-body .container:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.signup-body .container .info {
+  margin: 50px auto;
+  text-align: center;
+}
+.signup-body .container .info h1 {
+  margin: 0 0 15px;
+  padding: 0;
+  font-size: 36px;
+  font-weight: 300;
+  color: #1a1a1a;
+}
+.signup-body .container .info span {
+  color: #4d4d4d;
+  font-size: 12px;
+}
+.signup-body .container .info span a {
+  color: #000000;
+  text-decoration: none;
+}
+
+.signup-body .c-gray{
+  text-align: center;
+  color:#545E6E
+}
+
+
+.signup-body .c-lgray{
+  color:darkgray;
+}
+
+.signup-body .w-50{
+  width:49%  !important
+}
+
+
+
+.signup-body #Check{
+  width:auto;
+  margin:  15px 5px 25px 5px
+}
+
+.signup-body .check-span{
+  font-size:14px
+}
+
+
+.display-center{
+      display: block;
+    margin: 0 auto;
+}

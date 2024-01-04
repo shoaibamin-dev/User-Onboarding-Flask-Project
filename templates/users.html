@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management</title>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.0/bootstrap-table.min.css" />
+
+    <style>
+        body {
+            padding: 100px;
+        }
+
+        th {
+            font-size: 16px;
+        }
+
+        table {
+            padding: 10px;
+        }
+
+
+
+        .spacer {
+            height: 70px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 35px;
+        }
+
+        .head-user {
+            color: white
+        }
+
+        .action-btns {
+            font-size: 20px;
+            height: 50px;
+            padding: 0 30px;
+        }
+
+        .action-icon {
+            margin-right: 10px
+        }
+    </style>
+</head>
+
+<body>
+    <table id="table" data-show-header="true" data-pagination="true" data-id-field="name"
+        data-page-list="[5, 10, 25, 50, 100, ALL]" data-page-size="5">
+
+        <center>
+            <h2>User Management</h2>
+        </center>
+
+        <thead>
+            <tr>
+                <th data-field="number">#</th>
+                <th data-field="name">Name</th>
+                <th data-field="username">Username</th>
+                <th data-field="date_created">Date Created</th>
+                <th data-field="role">Role</th>
+                <th data-field="status">Status</th>
+                <th data-field="action">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.18.3/bootstrap-table.min.js"></script>
+<script>
+
+    function getRndInteger(min, max) {
+        return Math.floor(Math.random() * (max - min)) + min;
+    }
+
+    var data_arr = '{{data}}';
+
+    console.log(data_arr)
+
+
+    data_arr = data_arr.substring(1, data_arr.length - 1)
+    data_arr = data_arr.split('[')
+    var data = []
+
+    var roles = ["faculty", "student", "instructor", "lecturer"]
+    var statuses = ["Active", "Suspended", "Registered"]
+
+
+    for (let i = 0; i < data_arr.length; i++) {
+        const elem = data_arr[i].replaceAll('&#39;', '').replaceAll(']', '').split(',')
+
+        console.log(elem)
+
+        if (typeof (elem[1]) == 'undefined' || elem[1] == "" || elem[2] == "") continue
+
+        data.push({
+            number: '<b>' + elem[0] + '</b>',
+            name: '<img style="border-radius: 100px" height="50" width="50" class="rounded" src="data:image/png;base64, ' + elem[6] + '"> &nbsp;&nbsp;&nbsp;' + elem[1] + " " + elem[2],
+            username: elem[3],
+            date_created: new Date().toLocaleDateString(),
+            role: roles[getRndInteger(0, roles.length)],
+            status: statuses[getRndInteger(0, statuses.length)],
+            action: ` <div style='display: flex;justify-content: center;'>
+                <img height='30' width='30' src='https://img.icons8.com/cotton/2x/delete-sign--v2.png' /> 
+                    <img height='30' width='30' src='https://www.freeiconspng.com/thumbs/edit-icon-png/edit-icon-png-24.png'/>  &nbsp;&nbsp;&nbsp;&nbsp; 
+                </div> `,
+
+
+        }
+        )
+
+
+    }
+
+
+    $(function () {
+        $('#table').bootstrapTable({
+            data: data
+        });
+    });
+</script>
+
+</html>

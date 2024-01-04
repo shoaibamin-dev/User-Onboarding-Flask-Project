@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Login</title>
+    <link href="/static/signup.css" rel="stylesheet" />
+    <link href="../static/signup.css" rel="stylesheet" />
+</head>
+
+<body class="signup-body">
+    <div class="login-page">
+        <div class="form">
+
+            <h2 class="c-gray">Login</h2>
+            <br />
+            <form onsubmit="return false" id="log-form" class="" method="POST" action="/login">
+
+                <input type="text" placeholder="User Name" id="uname" name="uname" />
+                <input type="password" placeholder="Password" name="pass" id="pass" />
+
+            </form>
+            <button onclick="formsubmit()" type="button" class=" login-btn display-center"><b>Log in</b></button>
+        </div>
+    </div>
+</body>
+
+<script>
+
+
+    var success = '{{success}}'
+    console.log(success)
+    if (success) {
+        alert("Sign up Successful")
+    }
+
+    function formsubmit(ev) {
+
+
+
+        var uname = document.querySelector("#uname").value
+        var pass = document.querySelector("#pass").value
+
+        //
+
+        if (uname == "") return alert("Please Enter User Name")
+        if (pass == "") return alert("Please Enter Password")
+
+        //
+
+        document.querySelector("#log-form").setAttribute("method", "POST");
+        document.querySelector("#log-form").setAttribute("action", "/login");
+
+        document.querySelector("#log-form").submit();
+
+
+
+        return false;
+
+    }
+
+
+</script>
+
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User signup</title>
+    <link href="/static/signup.css" rel="stylesheet" />
+    <link href="../static/signup.css" rel="stylesheet" />
+</head>
+
+<body class="signup-body">
+    <div class="login-page">
+        <div class="form">
+
+            <h2 class="c-gray">Create New User</h2>
+            <br />
+            <form onsubmit="return false" enctype="multipart/form-data" id="reg-form" class="" method="POST"
+                action="/signup">
+
+
+
+                <input type="text" placeholder="User Name" id="uname" name="uname" />
+                <input type="text" placeholder="First Name" id="fname" name="fname" />
+                <input type="text" placeholder="Last Name" id="lname" name="lname" />
+                <input type="email" placeholder="Email" name="email" id="email" />
+                <input type="password" class="w-50" placeholder="Password" name="pass" id="pass" />
+                <input type="password" class="w-50" placeholder="Retype Password" name="cpass" id="cpass" />
+                <input type="file" placeholder="Input File" name="uicon" id="uicon" />
+
+            </form>
+            <button onclick="submit()" type="button" class=" login-btn"><b>Sign up</b></button>
+            <button onclick="reset()" type="button" class=" login-btn"><b>Reset</b></button>
+        </div>
+    </div>
+</body>
+
+<script>
+
+
+    function reset() {
+        document.querySelector("#fname").value = ''
+        document.querySelector("#lname").value = ''
+        document.querySelector("#uname").value = ''
+        document.querySelector("#email").value = ''
+        document.querySelector("#pass").value = ''
+        document.querySelector("#cpass").value = ''
+
+    }
+
+    function submit() {
+
+
+
+        var fname = document.querySelector("#fname").value
+        var lname = document.querySelector("#lname").value
+        var uname = document.querySelector("#uname").value
+        var email = document.querySelector("#email").value
+        var pass = document.querySelector("#pass").value
+        var cpass = document.querySelector("#cpass").value
+
+        //Validation starts
+
+        if (cpass != pass) return alert("Passwords Dont Match")
+        if (fname == "") return alert("Please Enter First Name")
+        if (fname.length > 50) return alert("Max character for First Name is 50")
+        if (lname == "") return alert("Please Enter Last Name")
+        if (lname.length > 50) return alert("Max character for Last Name is 50")
+        if (uname == "") return alert("Please Enter User Name")
+        if (uname[0] != "s" || uname.length != 7 || isNaN(uname.substring(1, uname.length))) return alert("Username must start with letter 's' followed by 6 digits")
+        if (pass == "") return alert("Please Enter Password")
+        if (pass.length > 8) return alert("Password should be less than 8 characters")
+        if (!(email.includes(".com") && email.includes("@"))) return alert("Badly Formatted Email")
+
+
+        //Validation End
+
+        document.querySelector("#reg-form").submit();
+
+
+
+    }
+
+
+</script>
+
+</html>
